@@ -7,7 +7,7 @@ import axios from "axios";
 */
 axios.get("https://api.github.com/users/a-altemara")
   .then(res => {
-    console.log('this works')
+    const profileCard = cardMaker({name: res.data.name, avatar_url: res.data.avatar_url, bio: res.data.bio})
   })
    
 /*
@@ -44,7 +44,6 @@ const allCards = document.querySelector('.cards')
 allCards.appendChild(card)
 
 }
-cardMaker({name: "Airiel", avatar_url: "https://images.dog.ceo/breeds/finnish-lapphund/mochilamvan.jpg", bio: "lorem ipsum nonsense"})
 
 
 /*
