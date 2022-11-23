@@ -22,7 +22,7 @@ axios.get("https://api.github.com/users/a-altemara")
   STEP 4: Pass the data received from Github into your function,
     and append the returned markup to the DOM as a child of .cards
 */
-function cardMaker(){
+function cardMaker({name, avatar_url, bio}){
 const card = document.createElement('div')
 const userName = document.createElement('h2')
 const userPic = document.createElement('img')
@@ -36,15 +36,15 @@ card.appendChild(userName)
 card.appendChild(userPic)
 card.appendChild(biography)
 
-// userName.textContent = name
-// userPic.src = avatar_url
-// biography.textContent = bio
+userName.textContent = name
+userPic.src = avatar_url
+biography.textContent = bio
 
 const allCards = document.querySelector('.cards')
 allCards.appendChild(card)
 
 }
-cardMaker()
+cardMaker({name: "Airiel", avatar_url: "https://images.dog.ceo/breeds/finnish-lapphund/mochilamvan.jpg", bio: "lorem ipsum nonsense"})
 
 
 /*
