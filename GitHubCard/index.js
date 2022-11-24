@@ -9,6 +9,9 @@ axios.get("https://api.github.com/users/a-altemara")
   .then(res => {
     const profileCard = cardMaker({ name: res.data.name, avatar_url: res.data.avatar_url, bio: res.data.bio })
   })
+  .catch(err => {
+    console.error(err)
+  })
 
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
@@ -17,7 +20,40 @@ axios.get("https://api.github.com/users/a-altemara")
 
     Skip to STEP 3 (line 34).
 */
-
+const airiel = {
+  "login": "A-Altemara",
+  "id": 107080531,
+  "node_id": "U_kgDOBmHrUw",
+  "avatar_url": "https://avatars.githubusercontent.com/u/107080531?v=4",
+  "gravatar_id": "",
+  "url": "https://api.github.com/users/A-Altemara",
+  "html_url": "https://github.com/A-Altemara",
+  "followers_url": "https://api.github.com/users/A-Altemara/followers",
+  "following_url": "https://api.github.com/users/A-Altemara/following{/other_user}",
+  "gists_url": "https://api.github.com/users/A-Altemara/gists{/gist_id}",
+  "starred_url": "https://api.github.com/users/A-Altemara/starred{/owner}{/repo}",
+  "subscriptions_url": "https://api.github.com/users/A-Altemara/subscriptions",
+  "organizations_url": "https://api.github.com/users/A-Altemara/orgs",
+  "repos_url": "https://api.github.com/users/A-Altemara/repos",
+  "events_url": "https://api.github.com/users/A-Altemara/events{/privacy}",
+  "received_events_url": "https://api.github.com/users/A-Altemara/received_events",
+  "type": "User",
+  "site_admin": false,
+  "name": "Airiel",
+  "company": null,
+  "blog": "www.linkedin.com/in/airiel-altemara",
+  "location": "Reno, Nv",
+  "email": null,
+  "hireable": null,
+  "bio": "Budding Developer, attending Bloom Institute of Technology, Ready to explore as much as I can.",
+  "twitter_username": null,
+  "public_repos": 27,
+  "public_gists": 0,
+  "followers": 0,
+  "following": 0,
+  "created_at": "2022-06-07T21:44:14Z",
+  "updated_at": "2022-11-01T21:41:46Z"
+}
 /*
   STEP 4: Pass the data received from Github into your function,
     and append the returned markup to the DOM as a child of .cards
@@ -105,48 +141,16 @@ function fancyCardMaker(cardObj) {
   fancyCardInfo.appendChild(numFollowing)
   fancyCardInfo.appendChild(FancyBio)
 
-  
+  fancyPic.src = cardObj.avatar_url
+  fancyHeader.textContent = cardObj.name
 
-const allFancyCards = document.querySelector('.cards')
+  const allFancyCards = document.querySelector('.cards')
   allFancyCards.appendChild(fancyCard)
 
 }
 
 fancyCardMaker(airiel)
-const airiel = {
-  "login": "A-Altemara",
-  "id": 107080531,
-  "node_id": "U_kgDOBmHrUw",
-  "avatar_url": "https://avatars.githubusercontent.com/u/107080531?v=4",
-  "gravatar_id": "",
-  "url": "https://api.github.com/users/A-Altemara",
-  "html_url": "https://github.com/A-Altemara",
-  "followers_url": "https://api.github.com/users/A-Altemara/followers",
-  "following_url": "https://api.github.com/users/A-Altemara/following{/other_user}",
-  "gists_url": "https://api.github.com/users/A-Altemara/gists{/gist_id}",
-  "starred_url": "https://api.github.com/users/A-Altemara/starred{/owner}{/repo}",
-  "subscriptions_url": "https://api.github.com/users/A-Altemara/subscriptions",
-  "organizations_url": "https://api.github.com/users/A-Altemara/orgs",
-  "repos_url": "https://api.github.com/users/A-Altemara/repos",
-  "events_url": "https://api.github.com/users/A-Altemara/events{/privacy}",
-  "received_events_url": "https://api.github.com/users/A-Altemara/received_events",
-  "type": "User",
-  "site_admin": false,
-  "name": "Airiel",
-  "company": null,
-  "blog": "www.linkedin.com/in/airiel-altemara",
-  "location": "Reno, Nv",
-  "email": null,
-  "hireable": null,
-  "bio": "Budding Developer, attending Bloom Institute of Technology, Ready to explore as much as I can.",
-  "twitter_username": null,
-  "public_repos": 27,
-  "public_gists": 0,
-  "followers": 0,
-  "following": 0,
-  "created_at": "2022-06-07T21:44:14Z",
-  "updated_at": "2022-11-01T21:41:46Z"
-}
+
 /*
   List of LS Instructors Github username's:
     tetondan
