@@ -5,13 +5,13 @@ import axios from "axios";
     (replacing the placeholder with your Github name):
     https://api.github.com/users/a-altemara
 */
-axios.get("https://api.github.com/users/a-altemara")
-  .then(res => {
-    const profileCard = cardMaker({ name: res.data.name, avatar_url: res.data.avatar_url, bio: res.data.bio })
-  })
-  .catch(err => {
-    console.error(err)
-  })
+// axios.get("https://api.github.com/users/a-altemara")
+//   .then(res => {
+//     const profileCard = cardMaker({ name: res.data.name, avatar_url: res.data.avatar_url, bio: res.data.bio })
+//   })
+//   .catch(err => {
+//     console.error(err)
+//   })
 
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
@@ -49,8 +49,8 @@ const airiel = {
   "twitter_username": null,
   "public_repos": 27,
   "public_gists": 0,
-  "followers": 0,
-  "following": 0,
+  "followers": 6,
+  "following": 4,
   "created_at": "2022-06-07T21:44:14Z",
   "updated_at": "2022-11-01T21:41:46Z"
 }
@@ -93,7 +93,24 @@ function cardMaker({ name, avatar_url, bio }) {
     user, and adding that card to the DOM.
 */
 
-const followersArray = ['christopherjbaker', 'ren-curry', 'IFoundAPlaceToTypeIn', 'rachelkwaynick', 'Jahteo'];
+const followersArray = ['christopherjbaker', 'ren-curry', 'IFoundAPlaceToTypeIn', 'rachelkwaynick', 'Jahteo', 'a-altemara'];
+followersArray.forEach(user => {
+  axios.get(`https://api.github.com/users/${user}`)
+  .then(res => {
+    const profileCard = fancyCardMaker(res.data)
+  })
+  .catch(err => {
+    console.error(err)
+  })
+}) 
+
+// axios.get("https://api.github.com/users/a-altemara")
+//   .then(res => {
+//     const profileCard = fancyCardMaker(res.data)
+//   })
+//   .catch(err => {
+//     console.error(err)
+//   })
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
@@ -143,13 +160,18 @@ function fancyCardMaker(cardObj) {
 
   fancyPic.src = cardObj.avatar_url
   fancyHeader.textContent = cardObj.name
+  fancyUserName.textContent = cardObj.login
+  fancyLocation.textContent = `location: ${cardObj.location}`
+  numFollowers.textContent = `Followers: ${cardObj.followers}`
+  numFollowing.textContent = `Following: ${cardObj.following}`
+  FancyBio.textContent = `Bio: ${cardObj.bio}`
 
   const allFancyCards = document.querySelector('.cards')
   allFancyCards.appendChild(fancyCard)
 
 }
 
-fancyCardMaker(airiel)
+// fancyCardMaker(airiel)
 
 /*
   List of LS Instructors Github username's:
