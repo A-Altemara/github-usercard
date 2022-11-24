@@ -7,9 +7,9 @@ import axios from "axios";
 */
 axios.get("https://api.github.com/users/a-altemara")
   .then(res => {
-    const profileCard = cardMaker({name: res.data.name, avatar_url: res.data.avatar_url, bio: res.data.bio})
+    const profileCard = cardMaker({ name: res.data.name, avatar_url: res.data.avatar_url, bio: res.data.bio })
   })
-   
+
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
     github info! You will need to understand the structure of this
@@ -22,26 +22,26 @@ axios.get("https://api.github.com/users/a-altemara")
   STEP 4: Pass the data received from Github into your function,
     and append the returned markup to the DOM as a child of .cards
 */
-function cardMaker({name, avatar_url, bio}){
-const card = document.createElement('div')
-const userName = document.createElement('h2')
-const userPic = document.createElement('img')
-const biography = document.createElement('p')
+function cardMaker({ name, avatar_url, bio }) {
+  const card = document.createElement('div')
+  const userName = document.createElement('h2')
+  const userPic = document.createElement('img')
+  const biography = document.createElement('p')
 
-card.classList.add('card')
-userName.classList.add('name')
+  card.classList.add('card')
+  userName.classList.add('name')
 
 
-card.appendChild(userName)
-card.appendChild(userPic)
-card.appendChild(biography)
+  card.appendChild(userName)
+  card.appendChild(userPic)
+  card.appendChild(biography)
 
-userName.textContent = name
-userPic.src = avatar_url
-biography.textContent = bio
+  userName.textContent = name
+  userPic.src = avatar_url
+  biography.textContent = bio
 
-const allCards = document.querySelector('.cards')
-allCards.appendChild(card)
+  const allCards = document.querySelector('.cards')
+  allCards.appendChild(card)
 
 }
 
@@ -57,7 +57,7 @@ allCards.appendChild(card)
     user, and adding that card to the DOM.
 */
 
-const followersArray = ['christopherjbaker','ren-curry','IFoundAPlaceToTypeIn','rachelkwaynick','' ];
+const followersArray = ['christopherjbaker', 'ren-curry', 'IFoundAPlaceToTypeIn', 'rachelkwaynick', 'Jahteo'];
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
@@ -79,6 +79,74 @@ const followersArray = ['christopherjbaker','ren-curry','IFoundAPlaceToTypeIn','
     </div>
 */
 
+function fancyCardMaker(cardObj) {
+  const fancyCard = document.createElement('div')
+  fancyCard.classList.add('card')
+  const fancyPic = document.createElement('img')
+  const fancyCardInfo = document.createElement('div')
+  fancyCardInfo.classList.add('card-info')
+  const fancyHeader = document.createElement('h3')
+  fancyHeader.classList.add('name')
+  const fancyUserName = document.createElement('p')
+  fancyUserName.classList.add('username')
+  const fancyLocation = document.createElement('p')
+  const fancyProfile = document.createElement('a')
+  const numFollowers = document.createElement('p')
+  const numFollowing = document.createElement('p')
+  const FancyBio = document.createElement('p')
+
+  fancyCard.appendChild(fancyPic)
+  fancyCard.appendChild(fancyCardInfo)
+  fancyCardInfo.appendChild(fancyHeader)
+  fancyCardInfo.appendChild(fancyUserName)
+  fancyCardInfo.appendChild(fancyLocation)
+  fancyCardInfo.appendChild(fancyProfile)
+  fancyCardInfo.appendChild(numFollowers)
+  fancyCardInfo.appendChild(numFollowing)
+  fancyCardInfo.appendChild(FancyBio)
+
+  
+
+const allFancyCards = document.querySelector('.cards')
+  allFancyCards.appendChild(fancyCard)
+
+}
+
+fancyCardMaker(airiel)
+const airiel = {
+  "login": "A-Altemara",
+  "id": 107080531,
+  "node_id": "U_kgDOBmHrUw",
+  "avatar_url": "https://avatars.githubusercontent.com/u/107080531?v=4",
+  "gravatar_id": "",
+  "url": "https://api.github.com/users/A-Altemara",
+  "html_url": "https://github.com/A-Altemara",
+  "followers_url": "https://api.github.com/users/A-Altemara/followers",
+  "following_url": "https://api.github.com/users/A-Altemara/following{/other_user}",
+  "gists_url": "https://api.github.com/users/A-Altemara/gists{/gist_id}",
+  "starred_url": "https://api.github.com/users/A-Altemara/starred{/owner}{/repo}",
+  "subscriptions_url": "https://api.github.com/users/A-Altemara/subscriptions",
+  "organizations_url": "https://api.github.com/users/A-Altemara/orgs",
+  "repos_url": "https://api.github.com/users/A-Altemara/repos",
+  "events_url": "https://api.github.com/users/A-Altemara/events{/privacy}",
+  "received_events_url": "https://api.github.com/users/A-Altemara/received_events",
+  "type": "User",
+  "site_admin": false,
+  "name": "Airiel",
+  "company": null,
+  "blog": "www.linkedin.com/in/airiel-altemara",
+  "location": "Reno, Nv",
+  "email": null,
+  "hireable": null,
+  "bio": "Budding Developer, attending Bloom Institute of Technology, Ready to explore as much as I can.",
+  "twitter_username": null,
+  "public_repos": 27,
+  "public_gists": 0,
+  "followers": 0,
+  "following": 0,
+  "created_at": "2022-06-07T21:44:14Z",
+  "updated_at": "2022-11-01T21:41:46Z"
+}
 /*
   List of LS Instructors Github username's:
     tetondan
